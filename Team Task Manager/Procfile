@@ -1,0 +1,19 @@
+web: cd server && npm install && npm start
+# Railway Deployment Configuration
+# This configuration file is used for deploying the application to Railway.app
+
+[build]
+builder = "heroku.buildpacks"
+buildpacks = ["heroku/nodejs"]
+
+[env]
+NODEJS_VERSION = "18.17.0"
+
+# Environment variables
+MONGODB_URI = "your_mongodb_connection_string"
+JWT_SECRET = "your_jwt_secret"
+NODE_ENV = "production"
+PORT = "5000"
+
+# Procfile
+# See Procfile for process definitions

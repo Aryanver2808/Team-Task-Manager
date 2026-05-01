@@ -1,0 +1,151 @@
+.projects-page {
+  padding: 3rem 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.projects-header h1 {
+  margin: 0;
+  font-size: 2.25rem;
+  color: var(--text);
+}
+
+.project-form {
+  margin-bottom: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.project-form h3 {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.project-form input,
+.project-form textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(91, 108, 231, 0.18);
+  border-radius: 0.85rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: #fbfdff;
+}
+
+.project-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.project-form input:focus,
+.project-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(91, 108, 231, 0.12);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.project-header h3 {
+  margin: 0;
+  flex: 1;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.project-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.progress-info {
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(91, 108, 231, 0.12);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.progress-info small {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.project-actions a,
+.project-actions button {
+  flex: 1;
+  text-align: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

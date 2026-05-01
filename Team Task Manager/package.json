@@ -1,0 +1,21 @@
+{
+  "name": "team-task-manager",
+  "version": "1.0.0",
+  "description": "Full-stack MERN team task manager application",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install && cd ..",
+    "postinstall": "cd client && npm install && npm run build",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: team-task-manager-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  backend:
+    build: ./server
+    container_name: team-task-manager-backend
+    environment:
+      MONGODB_URI: mongodb://admin:password@mongodb:27017/team-task-manager
+      JWT_SECRET: your_secret_key
+      NODE_ENV: development
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    volumes:
+      - ./server:/app
+
+  frontend:
+    build: ./client
+    container_name: team-task-manager-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:5000/api
+    depends_on:
+      - backend
+
+volumes:
+  mongodb_data:
